@@ -31,3 +31,9 @@ group :test do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+
+gem "haml-rails"
+gem 'bootstrap-sass'
+gem 'font-awesome-sass', '~> 5.15.1'
+gem 'simple_form'
