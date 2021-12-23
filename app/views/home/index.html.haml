@@ -24,7 +24,7 @@
               %span.fa.fa-dribbble
                 %i.sr-only Dribbble
 
-%nav#ftco-navbar.navbar.navbar-expand-lg.navbar-dark.ftco_navbar.bg-dark.ftco-navbar-light
+%nav#ftco-navbar.navbar.navbar-expand-lg.ftco_navbar.ftco-navbar-light
   .container
     %a.navbar-brand{href: "#"}
       Hotel
@@ -41,10 +41,27 @@
         %li.nav-item
           %a.nav-link{href: "#"} Services
         %li.nav-item
-          %a.nav-link{href: "#"} Rooms
+          = link_to rooms_path, class: "nav-link" do
+            Rooms
+              
         %li.nav-item
           %a.nav-link{href: "#"} Blog
         %li.nav-item
           %a.nav-link{href: "#"} Contact
+
+        %li.nav-item.dropdown
+          %a#adminDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", :href => "#", :role => "button"}
+            .fa.fa-cog
+            Admin
+          .dropdown-menu{"aria-labelledby" => "adminDropdown"}
+            = link_to root_path, class: "dropdown-item" do
+              .fa.fa-users
+              Users 
+            = link_to root_path, class: "dropdown-item" do
+              .fa.fa-lock-open
+              Enrollments 
+            = link_to root_path, class: "dropdown-item" do
+              .fa.fa-bell 
+              Activity 
 
 .fa.fa-flag

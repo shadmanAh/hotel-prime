@@ -21,4 +21,6 @@ Turbolinks.start()
 ActiveStorage.start()
 
 
-
+import "trix/dist/trix"
+require("trix")
+require("@rails/actiontext")
