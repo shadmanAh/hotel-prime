@@ -22,7 +22,7 @@ class RoomsController < ApplicationController
   # POST /rooms or /rooms.json
   def create
     @room = Room.new(room_params)
-
+    @room.user = current_user
     respond_to do |format|
       if @room.save
         format.html { redirect_to room_url(@room), notice: "Room was successfully created." }
