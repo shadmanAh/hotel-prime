@@ -1,7 +1,76 @@
+.wrap
+  .container
+    .row.justify-content-between
+      .col.d-flex.align-items-center
+        %p.mb-0.phone
+          %span.mailus Phone no:
+          %a{href: "#"} +00 1234 567
+          or
+          %span.mailus email us:
+          %a{href: "#"} shadman@email.com
+      .col.d-flex.justify-content-end
+        .social-media
+          %p.mb-0.d-flex
+            %a.d-flex.align-items-center.justify-content-center{href: "#"}
+              %span.fa.fa-facebook
+                %i.sr-only Facebook
+            %a.d-flex.align-items-center.justify-content-center{href: "#"}
+              %span.fa.fa-twitter
+                %i.sr-only Twitter
+            %a.d-flex.align-items-center.justify-content-center{href: "#"}
+              %span.fa.fa-instagram
+                %i.sr-only Instagram
+            %a.d-flex.align-items-center.justify-content-center{href: "#"}
+              %span.fa.fa-dribbble
+                %i.sr-only Dribbble
+
+%nav#ftco-navbar.navbar.navbar-expand-lg.ftco_navbar.ftco-navbar-light
+  .container
+    %a.navbar-brand{href: "#"}
+      Hotel
+      %span Rental
+    %button.navbar-toggler{"aria-controls" => "ftco-nav", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#ftco-nav", "data-toggle" => "collapse", type: "button"}
+      %span.fa.fa-bars
+      Menu
+    #ftco-nav.collapse.navbar-collapse
+      %ul.navbar-nav.ml-auto
+        %li.nav-item.active
+          = link_to root_path, class: "nav-link" do
+            Home
+        %li.nav-item
+          %a.nav-link{href: "#"} About
+        %li.nav-item
+          %a.nav-link{href: "#"} Services
+        %li.nav-item
+          = link_to rooms_path, class: "nav-link" do
+            Rooms
+              
+        %li.nav-item
+          %a.nav-link{href: "#"} Blog
+        %li.nav-item
+          %a.nav-link{href: "#"} Contact
+
+        %li.nav-item.dropdown
+          %a#adminDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", :href => "#", :role => "button"}
+            .fa.fa-cog
+            Admin
+          .dropdown-menu{"aria-labelledby" => "adminDropdown"}
+            = link_to root_path, class: "dropdown-item" do
+              .fa.fa-users
+              Users 
+            = link_to root_path, class: "dropdown-item" do
+              .fa.fa-lock-open
+              Enrollments 
+            = link_to root_path, class: "dropdown-item" do
+              .fa.fa-bell 
+              Activity 
+
+
+
 - if current_user 
-    = current_user.email
-    = link_to 'Account setting', edit_user_registration_path 
-    = link_to 'Sign out', destroy_user_session_path, method: :delete 
+  = current_user.email
+  = link_to 'Account setting', edit_user_registration_path 
+  = link_to 'Sign out', destroy_user_session_path, :method => :delete 
 - else 
-    = link_to 'Sign Up', new_user_registration_path 
-    = link_to 'Log In', new_user_session_path 
+  = link_to 'Sign Up', new_user_registration_path 
+  = link_to 'Log In', new_user_session_path 
