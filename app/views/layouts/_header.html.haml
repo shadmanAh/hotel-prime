@@ -41,9 +41,16 @@
           %a.nav-link{href: "#"} About
         %li.nav-item
           %a.nav-link{href: "#"} Services
-        %li.nav-item
-          = link_to rooms_path, class: "nav-link" do
+
+        %li.nav-item.dropdown
+          %a#adminDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", :href => "#", :role => "button"}
             Rooms
+          .dropdown-menu{"aria-labelledby" => "adminDropdown"}
+            = link_to rooms_path, class: "dropdown-item" do
+              Rooms
+            = link_to new_room_path, class: "dropdown-item" do
+              .fa.fa-plus
+              New Room
               
         %li.nav-item
           %a.nav-link{href: "#"} Blog
@@ -55,9 +62,9 @@
             .fa.fa-cog
             Admin
           .dropdown-menu{"aria-labelledby" => "adminDropdown"}
-            = link_to new_room_path, class: "dropdown-item" do
-              .fa.fa-plus
-              New Room
+            = link_to users_path, class: "dropdown-item" do
+              .fa.fa-users
+              Users
             = link_to root_path, class: "dropdown-item" do
               .fa.fa-lock-open
               Enrollments 
