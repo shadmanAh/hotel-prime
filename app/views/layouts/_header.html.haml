@@ -26,7 +26,7 @@
 
 %nav#ftco-navbar.navbar.navbar-expand-lg.ftco_navbar.ftco-navbar-light
   .container
-    %a.navbar-brand{href: "#"}
+    %a.navbar-brand{href: "/"}
       Hotel
       %span Rental
     %button.navbar-toggler{"aria-controls" => "ftco-nav", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#ftco-nav", "data-toggle" => "collapse", type: "button"}
@@ -55,9 +55,9 @@
             .fa.fa-cog
             Admin
           .dropdown-menu{"aria-labelledby" => "adminDropdown"}
-            = link_to root_path, class: "dropdown-item" do
-              .fa.fa-users
-              Users 
+            = link_to new_room_path, class: "dropdown-item" do
+              .fa.fa-plus
+              New Room
             = link_to root_path, class: "dropdown-item" do
               .fa.fa-lock-open
               Enrollments 
@@ -65,7 +65,13 @@
               .fa.fa-bell 
               Activity 
 
-
+        .form-inline.my-2.my-lg-0
+          = form_tag(rooms_path, method: :get) do
+            .input-group 
+              = text_field_tag :title, params[:title], autocomplete: 'off', placeholder: "Search", class: 'form-control', style: 'float: left; width: 150px; height: 25px;'
+              %span.input-group-append
+                %button.btn.btn-primary.btn-xm{:type => "submit"}
+                  %span.fa.fa-search{"aria-hidden" => "true"}
 
 - if current_user 
   = current_user.email

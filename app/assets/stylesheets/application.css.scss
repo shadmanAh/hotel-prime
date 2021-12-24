@@ -55,6 +55,108 @@ $secondary: #a3cb4c;
 html {
 	// overflow-x: hidden;
 }
+
+//BUTTON
+.btn {
+	// padding: 12px 16px !important;
+	cursor: pointer;
+	border-radius: 4px;
+	box-shadow: none!important;
+	font-size: 11px;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	&:hover, &:active, &:focus {
+		outline: none;
+	}
+	&.btn-primary {
+		background: $primary !important;
+		border: 1px solid $primary;
+		color: $white !important;
+		&:hover {
+			border: 1px solid $primary;
+			background: transparent !important;
+			color :$primary !important;
+		}
+		&.btn-outline-primary {
+			border: 1px solid $primary;
+			background: transparent;
+			color :$primary;
+			&:hover {
+				border: 1px solid transparent;
+				background: $primary;
+				color :$white;
+			}
+		}
+	}
+	&.btn-warning {
+		background: #fa9f47 !important;
+		border: 1px solid #fa9f47;
+		color: #000 !important;
+		&:hover {
+			border: 1px solid #fa9f47;
+			background: transparent !important;
+			color :#fa9f47 !important;
+		}
+		&.btn-outline-primary {
+			border: 1px solid #fa9f47;
+			background: transparent;
+			color :#fa9f47;
+			&:hover {
+				border: 1px solid transparent;
+				background: #fa9f47;
+				color :#000;
+			}
+		}
+	}
+	&.btn-danger {
+		background: #d64242 !important;
+		border: 1px solid #d64242;
+		color: #000 !important;
+		&:hover {
+			border: 1px solid #d64242;
+			background: transparent !important;
+			color :#d64242 !important;
+		}
+		&.btn-outline-primary {
+			border: 1px solid #d64242;
+			background: transparent;
+			color :#d64242;
+			&:hover {
+				border: 1px solid transparent;
+				background: #d64242;
+				color :#000;
+			}
+		}
+	}
+	&.btn-white {
+		background: $white;
+		border: 1px solid $white;
+		color: $black;
+		&:hover {
+			border: 1px solid $white;
+			background: transparent;
+			color :$white;
+		}
+		&.btn-outline-white {
+			border: 1px solid $white;
+			background: transparent;
+			color :$white;
+			&:hover {
+				border: 1px solid transparent;
+				background: $white;
+				color :$black;
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
 body {
 	font-family: $font-primary;
 	background: $white;
@@ -226,7 +328,7 @@ h1, h2, h3, h4, h5,
 					color: $black;
 					&:hover, &:focus{
 						background: $primary;
-						color: $white;
+						color: $primary;
 					}
 				}
 				// @include media-breakpoint-down(md){
@@ -494,58 +596,7 @@ h1, h2, h3, h4, h5,
 
 
 //BUTTON
-.btn {
-	padding: 12px 16px;
-	cursor: pointer;
-	border-radius: 4px;
-	box-shadow: none!important;
-	font-size: 11px;
-	text-transform: uppercase;
-	letter-spacing: 3px;
-	&:hover, &:active, &:focus {
-		outline: none;
-	}
-	&.btn-primary {
-		background: $primary;
-		border: 1px solid $primary;
-		color: $white;
-		&:hover {
-			border: 1px solid $primary;
-			background: transparent;
-			color :$primary;
-		}
-		&.btn-outline-primary {
-			border: 1px solid $primary;
-			background: transparent;
-			color :$primary;
-			&:hover {
-				border: 1px solid transparent;
-				background: $primary;
-				color :$white;
-			}
-		}
-	}
-	&.btn-white {
-		background: $white;
-		border: 1px solid $white;
-		color: $black;
-		&:hover {
-			border: 1px solid $white;
-			background: transparent;
-			color :$white;
-		}
-		&.btn-outline-white {
-			border: 1px solid $white;
-			background: transparent;
-			color :$white;
-			&:hover {
-				border: 1px solid transparent;
-				background: $white;
-				color :$black;
-			}
-		}
-	}
-}
+
 
 
 .ftco-services{

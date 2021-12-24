@@ -1,3 +1,69 @@
+.hero-wrap.js-fullheight{"data-stellar-background-ratio" => "0.5", style: "background-image: url('images/bg_1.jpg');"}
+  .overlay
+  .container
+    .row.no-gutters.slider-text.js-fullheight.align-items-center.justify-content-start{"data-scrollax-parent" => "true"}
+      .col-md-7.ftco-animate
+        %h2.subheading Welcome to Vacation Rental
+        %h1.mb-4 Rent an appartment for your vacation
+        %p
+          %a.btn.btn-primary{href: "#"} Learn more
+          %a.btn.btn-white{href: "#"} Contact us
+-# %section.ftco-section.ftco-book.ftco-no-pt.ftco-no-pb
+-#   .container
+-#     .row.justify-content-end
+-#       .col-lg-4
+-#         %form.appointment-form{action: "#"}
+-#           %h3.mb-3 Book your apartment
+-#           .row
+-#             .col-md-12
+-#               .form-group
+-#                 %input.form-control{placeholder: "Full Name", type: "text"}/
+-#             .col-md-6
+-#               .form-group
+-#                 .input-wrap
+-#                   .icon
+-#                     %span.ion-md-calendar
+-#                   %input.form-control.appointment_date-check-in{placeholder: "Check-In", type: "text"}/
+-#             .col-md-6
+-#               .form-group
+-#                 .input-wrap
+-#                   .icon
+-#                     %span.ion-md-calendar
+-#                   %input.form-control.appointment_date-check-out{placeholder: "Check-Out", type: "text"}/
+-#             .col-md-6
+-#               .form-group
+-#                 .form-field
+-#                   .select-wrap
+-#                     %select.form-control{id: "", name: ""}
+-#                       %option{value: ""} Adults
+-#                       %option{value: ""} 1
+-#                       %option{value: ""} 2
+-#                       %option{value: ""} 3
+-#                       %option{value: ""} 4
+-#                       %option{value: ""} 5
+-#             .col-md-6
+-#               .form-group
+-#                 .form-field
+-#                   .select-wrap
+-#                     %select.form-control{id: "", name: ""}
+-#                       %option{value: ""} Children
+-#                       %option{value: ""} 1
+-#                       %option{value: ""} 2
+-#                       %option{value: ""} 3
+-#                       %option{value: ""} 4
+-#                       %option{value: ""} 5
+-#             .col-md-6
+-#               .form-group
+-#                 %input.form-control{placeholder: "Phone number", type: "text"}/
+-#             .col-md-6
+-#               .form-group
+-#                 .input-wrap
+-#                   .icon
+-#                     %span.ion-ios-clock
+-#                   %input.form-control.appointment_time{placeholder: "Time", type: "text"}/
+-#             .col-md-12
+-#               .form-group
+-#                 %input.btn.btn-primary.py-3.px-4{type: "submit", value: "Book Appartment Now"}/
 
-
-.fa.fa-flag
+- @rooms.each do |room|
+  = render 'rooms/room', room: room

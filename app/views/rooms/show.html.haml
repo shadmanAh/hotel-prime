@@ -1,12 +1,8 @@
-%p#notice= notice
 
+= link_to 'Rooms', rooms_path
+\/
+= link_to @room.title, room_path(@room)
 %p
-  %b Title:
-  = @room.title
-%p
-  %b Description:
-  = @room.description
 
-= link_to 'Edit', edit_room_path(@room)
-\|
-= link_to 'Back', rooms_path
+= render 'rooms/room', room: @room
+
