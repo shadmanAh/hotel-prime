@@ -1,5 +1,5 @@
 class Room < ApplicationRecord
-    validates :title, presence: true
+    validates :title, :short_description, :size, :view, :bed, :price, :opacity, presence: true
     validates :description, presence: true, length: {:minimum => 5} 
 
     belongs_to :user 
@@ -20,7 +20,15 @@ class Room < ApplicationRecord
     # def to_s 
     #     slug 
     # end
+    BEDS = [:"1", :"2", :"3", :"4"]
+    def self.beds 
+        BEDS.map{|bed| [bed, bed]}
+    end
 
+    OPACITYS = [:"1", :"2", :"3", :"4", :"5", :"6"]
+    def self.opacitys 
+        OPACITYS.map{|opacity| [opacity, opacity]}
+    end
 
 
 end

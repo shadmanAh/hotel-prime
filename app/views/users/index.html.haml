@@ -1,4 +1,55 @@
-.col-md-4
-    .card-columns 
-        - @users.each do |user|
-            = render 'users/user', user: user
+- content_for :title do 
+    Corsego 
+    \|
+    All users
+
+%h3
+    .text-center
+        Users 
+        .badge.badge-info 
+            = @users.count
+%p
+-# .card-columns 
+-#     - @users.each do |user|
+-#         = render 'users/user', user: user
+
+
+
+.form-inline
+    = search_form_for @q do |f|
+        = f.search_field :email_or_sign_in_count_eq, placeholder: "email or sign in count"
+        = f.submit
+        = link_to users_path, class: 'btn btn-sm btn-primary' do 
+            .fa.fa-sync
+%br     
+.table-responsive
+    %table.table.table-bordered.table-striped.table-sm
+        %thead 
+            %tr 
+                %th id
+                %th= sort_link(@q, :email) 
+                %th created_at
+                %th= 'sign_in_count'.humanize 
+                %th= 'current_sign_in_at'.humanize
+                %th= 'last_sign_in_at'.humanize
+                %th= 'current_sign_in_ip'.humanize
+                %th= 'last_sign_in_ip'.humanize 
+                %th Confirmed?
+                %th Roles
+        %tbody
+            - @users.each do |user|
+                %tr 
+                    %td= user.id
+                    %td= user.email
+                    %td= user.created_at
+                    %td= user.sign_in_count
+                    %td= user.current_sign_in_at
+                    %td= user.last_sign_in_at
+                    %td= user.current_sign_in_ip
+                    %td= user.last_sign_in_ip 
+                    %td= user.confirmed?
+                    %td 
+                        -# - user.roles.each do |role|
+                        -#     .badge.badge-info
+                        -#         = role.name
+                        -# = link_to 'Edit roles', edit_user_path(user), class: 'btn btn-sm btn-warning' if policy(user).edit?

@@ -10,5 +10,8 @@ class User < ApplicationRecord
 
   has_many :rooms
 
+  def username
+    self.email.split(/@/).first
+  end
 
  end

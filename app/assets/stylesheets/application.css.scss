@@ -162,7 +162,14 @@ html {
     background-color: #18d3ff;
 }
 
-
+.ftco-section {
+	padding: 7em 0;
+	position: relative;
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 8px 15px -5px, rgba(0, 0, 0, 0.3) 0px 4px 10px -8px;
+	// @include media-breakpoint-down(sm){
+	// 	padding: 6em 0;
+	// }
+}
 
 
 
@@ -901,13 +908,7 @@ textarea.form-control {
 }
 
 
-.ftco-section {
-	padding: 7em 0;
-	position: relative;
-	// @include media-breakpoint-down(sm){
-	// 	padding: 6em 0;
-	// }
-}
+
 
 .ftco-bg-dark {
 	background: #3c312e;

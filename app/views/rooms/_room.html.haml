@@ -12,7 +12,21 @@
               %p 
                 .far.fa-clock
                 = room.created_at.strftime('%d-%b-%Y')
-                = room.user
+                .fa.fa-user
+                = room.user.username
+                = number_to_currency(room.price)
+              %p 
+                = room.short_description 
+              %p 
+                .fas.fa-door-open
+                = room.size 
+                M
+                .fas.fa-eye
+                = room.view 
+                .fas.fa-bed
+                = room.bed 
+                .fa.fa-users
+                = room.opacity
               %p
                 = link_to 'Read more', room, class: 'btn btn-primary'
                     
