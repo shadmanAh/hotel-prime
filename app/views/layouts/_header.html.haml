@@ -75,11 +75,11 @@
               Activity 
 
         .form-inline.my-2.my-lg-0
-          = form_tag(rooms_path, method: :get) do
+          = search_form_for @ransack_rooms, as: :rooms_search, url: rooms_path do |f|
             .input-group 
-              = text_field_tag :title, params[:title], autocomplete: 'off', placeholder: "Search", class: 'form-control', style: 'float: left; width: 150px; height: 25px;'
+              = f.search_field :title_or_short_description_cont, class: 'form-control', style: 'float: left; width: 150px; height: 25px;', placeholder: "Find a room"
               %span.input-group-append
-                %button.btn.btn-primary.btn-xm{:type => "submit"}
+                %button.btn.btn-primary.btn-xm{:type => "submit"} 
                   %span.fa.fa-search{"aria-hidden" => "true"}
 
 - if current_user 
