@@ -18,6 +18,7 @@ class RoomsController < ApplicationController
 
   # GET /rooms/1/edit
   def edit
+    authorize @room
   end
 
   # POST /rooms or /rooms.json

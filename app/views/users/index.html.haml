@@ -48,8 +48,8 @@
                     %td= user.current_sign_in_ip
                     %td= user.last_sign_in_ip 
                     %td= user.confirmed?
-                    %td 
-                        -# - user.roles.each do |role|
-                        -#     .badge.badge-info
-                        -#         = role.name
-                        -# = link_to 'Edit roles', edit_user_path(user), class: 'btn btn-sm btn-warning' if policy(user).edit?
+                    %td
+                        - user.roles.each do |role|
+                            .badge.badge-info
+                                = role.name
+                        = link_to 'Edit roles', edit_user_path(user), class: 'btn btn-sm btn-warning' #if policy(user).edit?
