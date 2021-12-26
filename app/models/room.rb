@@ -30,5 +30,6 @@ class Room < ApplicationRecord
         OPACITYS.map{|opacity| [opacity, opacity]}
     end
 
-
+    include PublicActivity::Model
+    tracked owner: Proc.new{|controller, model| controller.current_user}
 end
