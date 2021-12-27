@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :enrollments
   devise_for :users
   resources :rooms
   resources :users, only: [:index, :edit, :show, :update]

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_27_063210) do
+ActiveRecord::Schema.define(version: 2021_12_27_082937) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,6 +70,17 @@ ActiveRecord::Schema.define(version: 2021_12_27_063210) do
     t.index ["recipient_type", "recipient_id"], name: "index_activities_on_recipient"
     t.index ["trackable_id", "trackable_type"], name: "index_activities_on_trackable_id_and_trackable_type"
     t.index ["trackable_type", "trackable_id"], name: "index_activities_on_trackable"
+  end
+
+  create_table "enrollments", force: :cascade do |t|
+    t.bigint "room_id", null: false
+    t.bigint "user_id", null: false
+    t.integer "rating"
+    t.text "review"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["room_id"], name: "index_enrollments_on_room_id"
+    t.index ["user_id"], name: "index_enrollments_on_user_id"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -144,5 +155,7 @@ ActiveRecord::Schema.define(version: 2021_12_27_063210) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "enrollments", "rooms"
+  add_foreign_key "enrollments", "users"
   add_foreign_key "rooms", "users"
 end

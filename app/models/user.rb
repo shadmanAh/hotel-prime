@@ -7,11 +7,13 @@ class User < ApplicationRecord
   
   rolify
 
+  has_many :rooms
+  has_many :enrollments
+  
   def to_s 
     email 
   end
 
-  has_many :rooms
 
   extend FriendlyId
   friendly_id :email, use: :slugged
