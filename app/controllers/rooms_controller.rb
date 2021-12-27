@@ -1,29 +1,26 @@
 class RoomsController < ApplicationController
   before_action :set_room, only: %i[ show edit update destroy ]
 
-  # GET /rooms or /rooms.json
   def index
     @ransack_rooms = Room.ransack(params[:rooms_search], search_key: :rooms_search)
     @rooms = @ransack_rooms.result.includes(:user)
   end
 
-  # GET /rooms/1 or /rooms/1.json
   def show
   end
 
-  # GET /rooms/new
   def new
     @room = Room.new
+    authorize @room
   end
 
-  # GET /rooms/1/edit
   def edit
     authorize @room
   end
 
-  # POST /rooms or /rooms.json
   def create
     @room = Room.new(room_params)
+    authorize @room
     @room.user = current_user
     respond_to do |format|
       if @room.save
@@ -36,8 +33,8 @@ class RoomsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /rooms/1 or /rooms/1.json
   def update
+    authorize @room
     respond_to do |format|
       if @room.update(room_params)
         format.html { redirect_to room_url(@room), notice: "Room was successfully updated." }
@@ -49,8 +46,8 @@ class RoomsController < ApplicationController
     end
   end
 
-  # DELETE /rooms/1 or /rooms/1.json
   def destroy
+    authorize @room
     @room.destroy
     
     respond_to do |format|
@@ -62,12 +59,11 @@ class RoomsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_room
       @room = Room.friendly.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def room_params
       params.require(:room).permit(:title, :description, :short_description, :size, :view, :bed, :price, :opacity)
     end
