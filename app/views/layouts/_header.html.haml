@@ -82,10 +82,21 @@
         -#         %button.btn.btn-primary.btn-xm{:type => "submit"} 
         -#           %span.fa.fa-search{"aria-hidden" => "true"}
 
-- if current_user 
-  = current_user.email
-  = link_to 'Account setting', edit_user_registration_path 
-  = link_to 'Sign out', destroy_user_session_path, :method => :delete 
-- else 
-  = link_to 'Sign Up', new_user_registration_path 
-  = link_to 'Log In', new_user_session_path 
+
+        %li.nav-item.dropdown
+          %a#adminDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", :href => "#", :role => "button"}
+            %b= current_user.email
+          .dropdown-menu.dropdown-menu-right{"aria-labelledby" => "navbarDropdown"}
+            = link_to edit_user_registration_path, class: "dropdown-item" do
+              %i.fa.fa-cog
+              %b Account settings
+            = link_to destroy_user_session_path, method: :delete, class: "dropdown-item" do
+              %i.fa.fa-sign-out-alt 
+              %b Sign out 
+-# - if current_user 
+-#   = current_user.email
+-#   = link_to 'Account setting', edit_user_registration_path 
+-#   = link_to 'Sign out', destroy_user_session_path, :method => :delete 
+-# - else 
+-#   = link_to 'Sign Up', new_user_registration_path 
+-#   = link_to 'Log In', new_user_session_path 

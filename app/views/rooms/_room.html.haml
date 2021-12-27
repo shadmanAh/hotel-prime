@@ -5,27 +5,29 @@
         .d-flex.services.align-self-stretch.px-4.ftco-animate
           .d-block.services-wrap.text-center
             .media-body.py-4.px-3
-              %h3.heading
-                = link_to room.title, room_path(room)
+              %h2.heading
+                = room.title
               %p 
                 = room.short_description  
-              %p 
-                .far.fa-clock
-                = room.created_at.strftime('%d-%b-%Y')
-                .fa.fa-user
-                = room.user.username
+              %p.text-success
                 = number_to_currency(room.price)
-              
-              %p 
-                .fas.fa-door-open
+                per night
+              %h4 
+                %b= 'size'.humanize + ":"
                 = room.size 
-                M
-                .fas.fa-eye
+                m2
+              %h4   
+                %b= 'view'.humanize + ":"
                 = room.view 
+              %h4   
                 .fas.fa-bed
+                %b= 'bed'.humanize + ":"
                 = room.bed 
+              %h4   
                 .fa.fa-users
+                %b= 'max'.humanize + ":"
                 = room.opacity
+                Persons
               %p
                 = link_to 'Read more', room, class: 'btn btn-primary'
                     

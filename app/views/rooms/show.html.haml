@@ -1,12 +1,42 @@
 - content_for :title do 
-    Hotel 
-    \|
-    = @room.title
+  Hotel 
+  \|
+  = @room.title
 
 = link_to 'Rooms', rooms_path
 \/
 = link_to @room.title, room_path(@room)
 %p
 
-= render 'rooms/room', room: @room
+.col-md-10
+  .row
+
+    %h1.heading
+      = @room.title
+    %h3
+      = @room.short_description 
+    %h4 
+      = @room.description 
+    %h4 
+      %b= 'size'.humanize + ":"
+      = @room.size 
+      m2
+    %h4  
+      %b= 'view'.humanize + ":"
+      = @room.view 
+    %h4  
+      .fas.fa-bed
+      %b= 'bed'.humanize + ":"
+      = @room.bed 
+    %h4  
+      .fa.fa-users
+      %b= 'max'.humanize + ":"
+      = @room.opacity
+      Persons
+    %p
+      = submit_tag "Book #{number_to_currency(@room.price)} Per night ", class: 'btn btn-success'
+                  
+    %p
+      = link_to 'Edit', edit_room_path(@room), class: 'btn btn-sm btn-warning' if policy(@room).edit?
+      = link_to 'Destroy', room_path, method: :delete, data: {confirm: 'Are you sure? '}, class: 'btn btn-sm btn-danger' if policy(@room).destroy?
 
