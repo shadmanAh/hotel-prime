@@ -1,4 +1,6 @@
 #User.create!(email: 'shad@gmail.com', password: '123456', password_confirmation: '123456')
+
+PublicActivity.enabled = false
 30.times do
     Room.create!([{
         title: Faker::Lorem.word,
@@ -12,3 +14,5 @@
         price: Faker::Number.between(from: 50, to: 200)
     }])
 end
+PublicActivity.enabled = true
+

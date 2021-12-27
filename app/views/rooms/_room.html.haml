@@ -8,15 +8,14 @@
               %h3.heading
                 = link_to room.title, room_path(room)
               %p 
-                = room.description 
+                = room.short_description  
               %p 
                 .far.fa-clock
                 = room.created_at.strftime('%d-%b-%Y')
                 .fa.fa-user
                 = room.user.username
                 = number_to_currency(room.price)
-              %p 
-                = room.short_description 
+              
               %p 
                 .fas.fa-door-open
                 = room.size 
@@ -31,5 +30,5 @@
                 = link_to 'Read more', room, class: 'btn btn-primary'
                     
               %p
-                = link_to 'Edit', edit_room_path(room), class: 'btn btn-sm btn-warning'
-                = link_to 'Destroy', room, method: :delete, class: 'btn btn-sm btn-danger'
+                = link_to 'Edit', edit_room_path(room), class: 'btn btn-sm btn-warning' if policy(room).edit?
+                = link_to 'Destroy', room, method: :delete, data: {confirm: 'Are you sure? '}, class: 'btn btn-sm btn-danger' if policy(room).destroy?

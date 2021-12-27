@@ -3,7 +3,8 @@ class RoomsController < ApplicationController
 
   def index
     @ransack_rooms = Room.ransack(params[:rooms_search], search_key: :rooms_search)
-    @rooms = @ransack_rooms.result.includes(:user)
+    # @rooms = @ransack_rooms.result.includes(:user)
+    @pagy, @rooms = pagy(@ransack_rooms.result.includes(:user))
   end
 
   def show

@@ -13,6 +13,9 @@ class User < ApplicationRecord
 
   has_many :rooms
 
+  extend FriendlyId
+  friendly_id :email, use: :slugged
+
   def username
     self.email.split(/@/).first
   end
@@ -29,6 +32,10 @@ class User < ApplicationRecord
   end
 
   validate :must_have_a_role, on: :update
+
+  def online?
+    updated_at > 2.minutes.ago 
+  end
 
   private 
   def must_have_a_role 

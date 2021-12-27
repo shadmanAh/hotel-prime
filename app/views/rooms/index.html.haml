@@ -42,7 +42,10 @@
   .col-md-10
     - @rooms.each do |room|
       = render 'rooms/room', room: room
-
+  -# != pagy_nav(@pagy)
+  -# != pagy_bootstrap_nav(@pagy)
+  -# != pagy_bootstrap_nav_js(@pagy)
+  != pagy_bootstrap_combo_nav_js(@pagy)
 
 %br
 
