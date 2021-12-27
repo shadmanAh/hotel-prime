@@ -40,8 +40,11 @@
     = link_to 'refresh', @ransack_path
 
   .col-md-10
-    - @rooms.each do |room|
-      = render 'rooms/room', room: room
+    - @rooms.in_groups_of(3).each do |item|
+      .row
+        - item.each do |room|
+          = render 'rooms/room', room: room
+      
   %p
   -# != pagy_nav(@pagy)
   -# != pagy_bootstrap_nav(@pagy)
