@@ -37,7 +37,7 @@
       
       #ftco-nav.collapse.navbar-collapse
         %ul.navbar-nav.ml-auto
-          %li.nav-item.active
+          %li.nav-item{class: "#{'active' if current_page?(root_path)}"}
             = link_to root_path, class: "nav-link" do
               Home
           %li.nav-item
@@ -45,7 +45,7 @@
           %li.nav-item
             %a.nav-link{href: "#"} Services
 
-          %li.nav-item.dropdown
+          %li.nav-item.dropdown{class: "#{'active' if current_page?(rooms_path) || current_page?(new_room_path)}"}
             %a#adminDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", :href => "#", :role => "button"}
               Rooms
             .dropdown-menu{"aria-labelledby" => "adminDropdown"}
@@ -61,7 +61,7 @@
             %a.nav-link{href: "#"} Contact
 
           - if current_user.has_role?(:admin)
-            %li.nav-item.dropdown
+            %li.nav-item.dropdown{class: "#{'active' if current_page?(users_path) || current_page?(enrollments_path) || current_page?(home_activity_path)}"}
               %a#adminDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", :href => "#", :role => "button"}
                 .fa.fa-cog
                 Admin
