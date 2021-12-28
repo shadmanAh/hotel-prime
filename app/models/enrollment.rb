@@ -2,10 +2,10 @@ class Enrollment < ApplicationRecord
   belongs_to :room
   belongs_to :user
 
-  validates :user, :room, presence: true
+  validates :user, :room, :review, :rating, presence: true
 
-  validates_presence_of :rating, if: :review?
-  validates_presence_of :review, if: :rating?
+  # validates_presence_of :rating, if: :review?
+  # validates_presence_of :review, if: :rating?
 
   validates_uniqueness_of :user_id, scope: :room_id  #user cant be subscribed to the same course twice
   validates_uniqueness_of :room_id, scope: :user_id  #user cant be subscribed to the same course twice
