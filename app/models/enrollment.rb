@@ -10,6 +10,8 @@ class Enrollment < ApplicationRecord
   validates_uniqueness_of :user_id, scope: :room_id  #user cant be subscribed to the same course twice
   validates_uniqueness_of :room_id, scope: :user_id  #user cant be subscribed to the same course twice
 
+  scope :pending_review, -> { where(rating: [0, nil, ""], review: [0, nil, ""]) }
+
   # extend FriendlyId
   # friendly_id :to_s, use: :slugged
   

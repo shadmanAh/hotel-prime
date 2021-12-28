@@ -33,6 +33,11 @@
       %b= 'max'.humanize + ":"
       = @room.opacity
       Persons
+    %p 
+      .fa.fa-comment 
+        -# %small= @enrollment.current_room.review
+      -# = enrollment_button(@room)
+      = review_button(@room)
     %p
       = submit_tag "Book #{number_to_currency(@room.price)} Per night ", class: 'btn btn-success'
                   

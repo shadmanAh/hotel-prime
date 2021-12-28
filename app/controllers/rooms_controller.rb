@@ -8,6 +8,7 @@ class RoomsController < ApplicationController
   end
 
   def show
+    @enrollment = Enrollment.all
   end
 
   def new
