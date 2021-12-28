@@ -2,10 +2,11 @@
 // present in this directory. You're encouraged to place your actual application logic in
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
-//= require_tree .
-// Add following lines.
-//= require jquery 
+//
+//= require jquery
 //= require jquery_ujs
+//= require_tree 
+
 
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
@@ -15,7 +16,7 @@ import "channels"
 import "jquery"
 import "popper.js"
 import "bootstrap"
-import '../js/bootstrap_js_files.js' 
+import '../js/bootstrap_js_files.js'
 import 'bootstrap/dist/js/bootstrap'
 import 'bootstrap/dist/css/bootstrap'
 require("stylesheets/application.scss")
@@ -24,7 +25,5 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-
-import "trix/dist/trix"
 require("trix")
 require("@rails/actiontext")
