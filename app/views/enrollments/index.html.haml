@@ -8,23 +8,33 @@
     .badge.badge-info 
       = @enrollments.count
 %p
-
+.form-inline
+  = search_form_for @q, url: @ransack_path do |f|
+    = f.search_field :user_email_cont, placeholder: "user email"
+    = f.search_field :room_title_cont, placeholder: "room title"
+    = f.search_field :rating_eq, placeholder: "rating"
+    = f.search_field :review_cont, placeholder: "review"
+    = f.submit
+    = link_to @ransack_path, class: 'btn btn-sm btn-primary' do 
+      .fa.fa-sync
+%br
 .table-responsive
   %table.table.table-bordered.table-striped.table-sm
     %thead
       %tr
         %th ID
-        %th User
+        %th
+          = sort_link(@q, :user_email)
         %th 
-          .fa.fa-clock 
-          Created at
-        %th Room
+          = sort_link(@q, :created_at)
+        %th 
+          = sort_link(@q, :room_title)
         %th 
           .text-warning.fa.fa-clock
           Reviewed on
         %th 
+          = sort_link(@q, :rating)
           .text-warning.fa.fa-star
-          Rating
         %th 
           .text-warning.fa.fa-comment
           Review
