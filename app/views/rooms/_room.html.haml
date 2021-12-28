@@ -5,6 +5,8 @@
         .d-flex.services.align-self-stretch.px-4.ftco-animate
           .d-block.services-wrap.text-center
             .media-body.py-4.px-3
+              - if room.avatar.attached?
+                = image_tag room.avatar, width: "100%";
               %h2.heading
                 = room.title
               %p 
@@ -32,5 +34,6 @@
                 = link_to 'Read more', room, class: 'btn btn-primary'
                     
               %p
-                = link_to 'Edit', edit_room_path(room), class: 'btn btn-sm btn-warning' if policy(room).edit?
-                = link_to 'Destroy', room, method: :delete, data: {confirm: 'Are you sure? '}, class: 'btn btn-sm btn-danger' if policy(room).destroy?
+                - if current_user
+                  = link_to 'Edit', edit_room_path(room), class: 'btn btn-sm btn-warning' if policy(room).edit?
+                  = link_to 'Destroy', room, method: :delete, data: {confirm: 'Are you sure? '}, class: 'btn btn-sm btn-danger' if policy(room).destroy?

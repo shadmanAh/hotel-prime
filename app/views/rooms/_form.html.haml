@@ -6,6 +6,7 @@
   .form-inputs
     = f.input :title
     = f.label :description
+    = f.file_field :avatar
     = f.rich_text_area :description
     %small= f.error :description, class: 'text-danger'
     = f.input :short_description

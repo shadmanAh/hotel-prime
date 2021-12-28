@@ -5,6 +5,8 @@ class Room < ApplicationRecord
     belongs_to :user 
     has_many :enrollments
 
+    has_one_attached :avatar
+
     def to_s 
         title
     end
