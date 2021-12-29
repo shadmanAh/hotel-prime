@@ -1,0 +1,27 @@
+%h1 Listing mains
+
+%table
+  %thead
+    %tr
+      %th First title
+      %th First description
+      %th Second title
+      %th Second description
+      %th
+      %th
+      %th
+
+  %tbody
+    - @mains.each do |main|
+      %tr
+        %td= main.first_title
+        %td= main.first_description
+        %td= main.second_title
+        %td= main.second_description
+        %td= link_to 'Show', main
+        %td= link_to 'Edit', edit_main_path(main)
+        %td= link_to 'Destroy', main, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Main', new_main_path

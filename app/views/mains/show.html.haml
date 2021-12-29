@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b First title:
+  = @main.first_title
+%p
+  %b First description:
+  = @main.first_description
+%p
+  %b Second title:
+  = @main.second_title
+%p
+  %b Second description:
+  = @main.second_description
+
+= link_to 'Edit', edit_main_path(@main)
+\|
+= link_to 'Back', mains_path

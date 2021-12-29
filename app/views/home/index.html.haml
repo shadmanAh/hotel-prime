@@ -1,13 +1,14 @@
-.hero-wrap.js-fullheight{"data-stellar-background-ratio" => "0.5", style: "background-image: url('images/bg_1.jpg');"}
+.hero-wrap.js-fullheight{"data-stellar-background-ratio" => "0.5", style: "background-image: url('http://127.0.0.1:3000#{url_for(@main.avatar)}');"}
+  -# = image_tag @main.avatar, width: "100%";
   .overlay
   .container
     .row.no-gutters.slider-text.js-fullheight.align-items-center.justify-content-start{"data-scrollax-parent" => "true"}
-      .col-md-7.ftco-animate
-        %h2.subheading Welcome to Vacation Rental
-        %h1.mb-4 Rent an appartment for your vacation
-        %p
-          %a.btn.btn-primary{href: "#"} Learn more
-          %a.btn.btn-white{href: "#"} Contact us
+      .col-md-7
+        %h2.subheading 
+          = @main.first_title
+        %h1.mb-4 
+          = @main.first_description
+
 -# %section.ftco-section.ftco-book.ftco-no-pt.ftco-no-pb
 -#   .container
 -#     .row.justify-content-end
@@ -67,3 +68,17 @@
 
 - @rooms.each do |room|
   = render 'rooms/room', room: room
+
+.row
+%section.ftco-intro{"data-stellar-background-ratio" => "0.5", style: "background-image: url('http://127.0.0.1:3000#{url_for(@main.avatar)}');"}
+  .overlay
+  .container
+    .row.justify-content-center
+      .col-md-9.text-center
+        %h2 
+          = @main.second_title
+        %p.mb-4 
+          = @main.second_description
+        %p.mb-0
+          %a.btn.btn-primary.px-4.py-3{href: "#"} Book now
+          %a.btn.btn-white.px-4.py-3{href: "#"} Contact us
