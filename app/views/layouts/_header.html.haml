@@ -43,8 +43,9 @@
           %li.nav-item{class: "#{'active' if current_page?(abouts_path)}"}
             = link_to abouts_path, class: "nav-link" do
               About
-          %li.nav-item
-            %a.nav-link{href: "#"} Services
+          %li.nav-item{class: "#{'active' if current_page?(services_path)}"}
+            = link_to services_path, class: "nav-link" do
+              Services
 
           %li.nav-item.dropdown{class: "#{'active' if current_page?(rooms_path) || current_page?(new_room_path)}"}
             %a#adminDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", :href => "#", :role => "button"}

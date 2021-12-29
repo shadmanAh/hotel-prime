@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :services
   resources :hotel_intros
   resources :abouts
   resources :mains
