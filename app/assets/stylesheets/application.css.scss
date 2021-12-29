@@ -564,7 +564,35 @@ h1, h2, h3, h4, h5,
 	}
 }
 
+.ftco-intro{
+	padding: 4em 0;
+	width: 100%;
+	height: 100%;
+	position: inherit;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: top center;
+	position: relative;
+	color:rgba(255,255,255,.8);
+	background-attachment: fixed;
 
+	h2{
+		color: $white;
+		font-size: 60px;
+		font-weight: 700;
+	}
+	.overlay{
+		position: absolute;
+		// width: 50%;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		content: '';
+		opacity: .4;
+		background: $primary;
+	}
+}
 
 
 .hero-wrap{
@@ -668,6 +696,8 @@ h1, h2, h3, h4, h5,
 		}
 	}
 }
+
+
 
 .owl-carousel.owl-drag .owl-item {
 	-ms-touch-action: pan-y;
@@ -1091,36 +1121,7 @@ textarea.form-control {
 }
 
 
-.ftco-intro{
-	padding: 4em 0;
-	width: 100%;
-	height: 100%;
-	position: inherit;
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: top center;
-	position: relative;
-	color:rgba(255,255,255,.8);
-	// @include media-breakpoint-down(md){
-	// 	background-position: center center !important;
-	// }
-	h2{
-		color: $white;
-		font-size: 60px;
-		font-weight: 700;
-	}
-	.overlay{
-		position: absolute;
-		// width: 50%;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		content: '';
-		opacity: .4;
-		background: $primary;
-	}
-}
+
 
 
 //BOOKING
