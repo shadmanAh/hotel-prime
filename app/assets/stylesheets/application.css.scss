@@ -56,6 +56,21 @@ html {
 	// overflow-x: hidden;
 }
 
+body {
+	font-family: $font-primary !important;
+	background: $white !important;
+	font-size: 14px !important;
+	line-height: 1.8 !important;
+	font-weight: 400 !important;
+	color: lighten($black,50%) !important;
+	&.menu-show {
+		overflow: hidden;
+		position: fixed;
+		height: 100%;
+		width: 100%;
+	}
+}
+
 //BUTTON
 .btn {
 	// padding: 12px 16px !important;
@@ -328,20 +343,7 @@ footer{
 }
 
 
-body {
-	font-family: $font-primary;
-	background: $white;
-	font-size: 14px;
-	line-height: 1.8;
-	font-weight: 400;
-	color: lighten($black,50%);
-	&.menu-show {
-		overflow: hidden;
-		position: fixed;
-		height: 100%;
-		width: 100%;
-	}
-}
+
 a {
 	text-decoration: none !important;
 	transition: .3s all ease;
@@ -610,6 +612,7 @@ h1, h2, h3, h4, h5,
 	}
 	.media-body{
 		width: calc(100% - 70px);
+		margin-left: 5px;
 		h3{
 			font-family: $font-primary;
 			font-size: 17px;
@@ -618,8 +621,8 @@ h1, h2, h3, h4, h5,
 	}
 }
 
-.ftco-services{
-	padding: 50px 0;
+.ftco-service{
+	padding: 70px 0;
 }
 
 .heading-section{

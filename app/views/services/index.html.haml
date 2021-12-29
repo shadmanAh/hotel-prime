@@ -15,7 +15,7 @@
     = render 'hotel_intros/hotel', hotel_intro: hotel_intro
 .row
 
-%section.ftco-services.bg-light.ftco-no-pt
+%section.ftco-service.bg-light.ftco-no-pt
   .container
     .row.no-gutters.justify-content-center.pb-5.mb-3
       .col-md-7.heading-section.text-center
@@ -29,6 +29,7 @@
 %table
   %thead
     %tr
+      %th Icon
       %th Title
       %th Description
       %th
@@ -38,6 +39,7 @@
   %tbody
     - @services.each do |service|
       %tr
+        %td= service.icon
         %td= service.title
         %td= service.description
         %td= link_to 'Show', service
