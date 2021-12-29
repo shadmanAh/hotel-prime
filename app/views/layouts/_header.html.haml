@@ -78,7 +78,10 @@
                   Activity 
                 = link_to mains_path, class: "dropdown-item" do
                   .fa.fa-bell 
-                  Main page 
+                  Main page
+                = link_to hotel_intros_path, class: "dropdown-item" do
+                  .fa.fa-bell 
+                  Hotel intro
 
           .form-inline.my-2.my-lg-0
             = search_form_for @ransack_rooms, as: :rooms_search, url: rooms_path do |f|

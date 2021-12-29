@@ -1,0 +1,26 @@
+.container
+  %h1 Listing hotel_intros
+
+  %table
+    %thead
+      %tr
+        %th Title
+        %th Description
+        %th
+        %th
+        %th
+
+    %tbody
+      - @hotel_intros.each do |hotel_intro|
+        %tr
+          %td= hotel_intro.title
+          %td= hotel_intro.description
+          %td= link_to 'Show', hotel_intro
+          %td= link_to 'Edit', edit_hotel_intro_path(hotel_intro)
+          %td= link_to 'Destroy', hotel_intro, method: :delete, data: { confirm: 'Are you sure?' }
+
+  %br
+  - @hotel_intros.each do |hotel_intro|
+    = render 'hotel_intros/hotel', hotel_intro: hotel_intro
+
+  = link_to 'New Hotel intro', new_hotel_intro_path

@@ -10,7 +10,10 @@
         %h1.mb-0.bread 
           = @about.description
 
-
+.container
+  - @hotel_intros.each do |hotel_intro|
+    = render 'hotel_intros/hotel', hotel_intro: hotel_intro
+.row
 
 
 

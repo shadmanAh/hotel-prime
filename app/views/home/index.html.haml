@@ -1,4 +1,4 @@
-.hero-wrap.js-fullheight{"data-stellar-background-ratio" => "0.5", style: "background-image: url('http://127.0.0.1:3000#{url_for(@main.avatar)}');"}
+.hero-wrap.js-fullheight{"data-stellar-background-ratio" => "0.5", style: "margin-bottom: -100px; background-image: url('http://127.0.0.1:3000#{url_for(@main.avatar)}');"}
   -# = image_tag @main.avatar, width: "100%";
   .overlay
   .container
@@ -65,9 +65,10 @@
 -#             .col-md-12
 -#               .form-group
 -#                 %input.btn.btn-primary.py-3.px-4{type: "submit", value: "Book Appartment Now"}/
-
-- @rooms.each do |room|
-  = render 'rooms/room', room: room
+.container
+  - @rooms.each do |room|
+    = render 'rooms/room', room: room
+  
 
 .row
 %section.ftco-intro{"data-stellar-background-ratio" => "0.5", style: "background-image: url('http://127.0.0.1:3000#{url_for(@main.avatar)}');"}
@@ -82,3 +83,8 @@
         %p.mb-0
           %a.btn.btn-primary.px-4.py-3{href: "#"} Book now
           %a.btn.btn-white.px-4.py-3{href: "#"} Contact us
+.p
+.container
+  - @hotel_intros.each do |hotel_intro|
+    = render 'hotel_intros/hotel', hotel_intro: hotel_intro
+.row

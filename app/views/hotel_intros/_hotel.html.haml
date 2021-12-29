@@ -1,0 +1,21 @@
+.col-md-4
+  %section.ftco-section.ftco-services
+    .container
+      .row
+        .d-flex.services.align-self-stretch.px-4.ftco-animate
+          .d-block.services-wrap.text-center
+            .media-body.py-4.px-3
+              - if hotel_intro.avatar.attached?
+                = image_tag hotel_intro.avatar, width: "100%";
+              %h2.heading
+                = hotel_intro.title
+              %p 
+                = hotel_intro.description 
+              
+              %p
+                = link_to 'Read more', @hotel_intros_path, class: 'btn btn-primary'
+                    
+              %p
+                -# - if current_user
+                -#   = link_to 'Edit', edit_room_path(room), class: 'btn btn-sm btn-warning' if policy(room).edit?
+                -#   = link_to 'Destroy', room, method: :delete, data: {confirm: 'Are you sure? '}, class: 'btn btn-sm btn-danger' if policy(room).destroy?
