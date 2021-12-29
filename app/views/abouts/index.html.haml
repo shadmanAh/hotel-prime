@@ -1,0 +1,24 @@
+%section.hero-wrap.hero-wrap-2{"data-stellar-background-ratio" => "0.5", style: "background-image: url('http://127.0.0.1:3000#{url_for(@about.avatar)}');"}
+  .overlay
+  .container
+    .row.no-gutters.slider-text.align-items-center.justify-content-center
+      .col-md-9.text-center
+        %p.breadcrumbs.mb-2
+          %span
+            = @about.title
+            %i.ion-ios-arrow-forward
+        %h1.mb-0.bread 
+          = @about.description
+
+
+
+
+
+%h1 Listing abouts
+        
+= link_to 'Edit', edit_about_path(@about)
+= link_to 'Destroy', @about, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New About', new_about_path

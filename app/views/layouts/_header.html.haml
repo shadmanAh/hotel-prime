@@ -40,8 +40,9 @@
           %li.nav-item{class: "#{'active' if current_page?(root_path)}"}
             = link_to root_path, class: "nav-link" do
               Home
-          %li.nav-item
-            %a.nav-link{href: "#"} About
+          %li.nav-item{class: "#{'active' if current_page?(abouts_path)}"}
+            = link_to abouts_path, class: "nav-link" do
+              About
           %li.nav-item
             %a.nav-link{href: "#"} Services
 

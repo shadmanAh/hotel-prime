@@ -610,6 +610,23 @@ h1, h2, h3, h4, h5,
 	.col-md-7{
 		margin: 10% 1%;
 	}
+	&.hero-wrap-2{
+		height: 400px;
+		.overlay{
+			opacity: .2;
+		}
+		.slider-text{
+			height: 400px;
+			span{
+				color: white;
+				opacity: .7;
+			}
+			h1{
+				font-weight: 700;
+				font-size: 60px;
+			}
+		}
+	}
 	// @include media-breakpoint-down(lg){
 	// 	background-position: center center !important;
 	// }
@@ -623,19 +640,7 @@ h1, h2, h3, h4, h5,
 		opacity: .1;
 		background: $black;
 	}
-	&.hero-wrap-2{
-		height: 400px;
-		.overlay{
-			opacity: .2;
-		}
-		.slider-text{
-			height: 400px;
-			h1{
-				font-weight: 700;
-				font-size: 60px;
-			}
-		}
-	}
+	
 
 	h2.subheading{
 		font-size: 18px;
